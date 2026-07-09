@@ -1,0 +1,6 @@
+{
+  "name": "Labor Economics & Capacity Planning Engine",
+  "description": "Labor economics & capacity planning engine for manufacturing, focusing on throughput, cost allocation, and scenario modeling.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}

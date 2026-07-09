@@ -1,0 +1,42 @@
+name: Deploy to GitHub Pages
+
+on:
+  push:
+    branches:
+      - main
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+jobs:
+  build-and-deploy:
+    concurrency: ci-${{ github.ref }}
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout Code
+        uses: actions/checkout@v4
+
+      - name: Setup Node
+        uses: actions/setup-node@v4
+        with:
+          node-version: 20
+          # Disabled npm Cache Setup: Removed the cache parameter 
+          # because the project has no lock file (package-lock.json, npm-shrinkwrap.json, yarn.lock)
+
+      - name: Install Dependencies
+        run: npm install
+
+      - name: Build Next.js Static Export
+        run: npm run build
+        env:
+          GITHUB_ACTIONS: true
+
+      - name: Prevent GitHub Pages Jekyll Bypass
+        run: touch out/.nojekyll
+
+      - name: Deploy to GitHub Pages Branch
+        uses: JamesIves/github-pages-deploy-action@v4
+        with:
+          folder: out
+          branch: gh-pages
