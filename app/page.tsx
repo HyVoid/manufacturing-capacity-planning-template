@@ -375,6 +375,32 @@ export default function EngineApp() {
     });
   };
 
+  // 5. 按产品对比计划与实际 (Plan vs Actual Variance & Bottleneck Tracker)
+  const getProductPlanVsActual = () => {
+    const safeProducts = Array.isArray(products) ? products : DEFAULT_PRODUCTS;
+    const safePlans = Array.isArray(plans) ? plans : DEFAULT_PLANS;
+    const safeActuals = Array.isArray(actuals) ? actuals : DEFAULT_ACTUALS;
+
+    return safeProducts.map(prod => {
+      const totalPlan = safePlans
+        .filter(p => p.productId === prod.productId)
+        .reduce((sum, p) => sum + p.planQuantity, 0);
+      const totalActual = safeActuals
+        .filter(a => a.productId === prod.productId)
+        .reduce((sum, a) => sum + a.actualQuantity, 0);
+      const variance = totalActual - totalPlan;
+      const attainment = totalPlan > 0 ? (totalActual / totalPlan) : 0;
+
+      return {
+        ...prod,
+        totalPlan,
+        totalActual,
+        variance,
+        attainment
+      };
+    });
+  };
+
   // ── 系统备份、恢复、重置、批量导入 ──
   
   // 一键重置数据
@@ -721,6 +747,7 @@ export default function EngineApp() {
   const kpis = calcDashboardKPIs();
   const productMatrix = getProductProductivityMatrix();
   const allocatedActuals = getAllocatedActuals();
+  const planVsActualMatrix = getProductPlanVsActual();
 
   // ── 模拟沙盘计算 (Scenario Calculation Flow) ──
   const weeklyTheoreticalHours = simWorkers * simShiftHours * 5;
@@ -748,7 +775,7 @@ export default function EngineApp() {
           </div>
           <div>
             <h1 className="font-heading font-bold text-[16px] tracking-tight text-[#051C2C] leading-none">
-              Labor Economics & Capacity Planning Engine
+              Manufacturing Labor Cost & Capacity Planning Toolkit
             </h1>
             <p className="text-[9px] font-mono tracking-wider text-[#888888] uppercase mt-0.5">
               Pet Treat Manufacturing Suite
@@ -941,27 +968,316 @@ export default function EngineApp() {
                 </div>
 
                 {/* Insight/说明块 (Bento Styled Left-Border Highlight Box) */}
-                <div className="border-l-[3px] border-[#2251FF] bg-[#051C2C]/[0.04] p-5 rounded-r-lg text-[#051C2C] space-y-2">
+                <div className="border-l-[3px] border-[#2251FF] bg-[#051C2C]/[0.04] p-5 rounded-r-lg text-[#051C2C] space-y-3">
                   <div className="flex items-center gap-2">
                     <Sparkles className="w-4 h-4 text-[#2251FF]" />
                     <h4 className="font-heading text-base font-bold tracking-tight">
-                      Operational Performance Insight
+                      Operational Performance & Labor Economics Insight
                     </h4>
                   </div>
-                  <div className="text-xs font-body leading-relaxed space-y-1 text-gray-700">
+                  <div className="text-xs font-body leading-relaxed space-y-2 text-gray-700">
                     <p>
-                      • The current <strong>Labor Utilization is {(kpis.ytdUtilization * 100).toFixed(1)}%</strong>. 
+                      • <strong>Paid vs. Productive Labor Utilization:</strong> The current **Labor Utilization is {(kpis.ytdUtilization * 100).toFixed(1)}%**.
                       {kpis.ytdUtilization < 0.75 ? (
-                        <span className="text-[#D32F2F] font-semibold"> Operational leakage detected. Standard hours conversion is below the paid threshold. Worker downtime or slow throughput transitions should be reviewed.</span>
+                        <span className="text-[#D32F2F] font-semibold"> Operational leakage detected. {(100 - (kpis.ytdUtilization * 100)).toFixed(1)}% of paid timesheet hours are currently lost as downtime or transition friction rather than productive manufacturing standard hours. Review line staffing and setup procedures.</span>
                       ) : kpis.ytdUtilization > 0.92 ? (
-                        <span className="text-[#00C853] font-semibold"> Outstanding throughput efficiency! Standard yield matches close to 100% of paid timesheets. Keep checking for workforce fatigue.</span>
+                        <span className="text-[#00C853] font-semibold"> Outstanding throughput efficiency! The paid-to-productive conversion matches close to 100% of standard engineering targets. Monitor for worker fatigue.</span>
                       ) : (
-                        <span> Operations are running inside the optimal healthy boundary. Outbound shipping timelines and inventory holding costs remain balanced.</span>
+                        <span> Operational performance is running inside the optimal healthy boundary. Paid timesheet hours are converted efficiently into standard productive output.</span>
                       )}
                     </p>
                     <p>
-                      • Among the processed batches, <strong>{productMatrix.sort((a,b) => b.avgUnitLaborCost - a.avgUnitLaborCost)[0]?.productName || 'N/A'}</strong> incurs the highest labor surcharge, averaging <strong>${(productMatrix.sort((a,b) => b.avgUnitLaborCost - a.avgUnitLaborCost)[0]?.avgUnitLaborCost || 0).toFixed(2)} / pack</strong>. Consider automating this process to increase the nominal standard throughput.
+                      • <strong>Strategic Surcharges & Pricing Priority:</strong> Among the processed batches, <strong>{productMatrix.sort((a,b) => b.avgUnitLaborCost - a.avgUnitLaborCost)[0]?.productName || 'N/A'}</strong> incurs the highest labor surcharge, averaging <strong>${(productMatrix.sort((a,b) => b.avgUnitLaborCost - a.avgUnitLaborCost)[0]?.avgUnitLaborCost || 0).toFixed(2)} / pack</strong>. Consider reviewing the retail price margin or prioritizing higher-throughput lines to scale down unit labor burdens.
                     </p>
+                  </div>
+                </div>
+
+                {/* ─── NEW BENTO SECTION: STRATEGIC SOLUTION DEEP-DIVE ─── */}
+                <div className="bg-white rounded-xl shadow-[0_4px_12px_rgba(0,0,0,0.05)] border border-black/5 p-6 space-y-6">
+                  <div>
+                    <h3 className="font-heading text-lg font-bold text-[#051C2C] tracking-tight">
+                      Strategic Traceability & Engine Capabilities
+                    </h3>
+                    <p className="text-xs font-body text-[#888888] mt-0.5">
+                      This active web database provides complete real-time traceability solving the 6 critical operational objectives. No Excel modification is needed.
+                    </p>
+                  </div>
+
+                  <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5">
+                    {/* Capability 1 */}
+                    <div className="p-4 bg-[#F5F5F2] border border-[#E8E8E6] rounded-lg space-y-2">
+                      <div className="flex items-center gap-2">
+                        <div className="w-6 h-6 rounded-full bg-[#2251FF]/10 flex items-center justify-center text-[#2251FF] text-xs font-bold font-mono">1</div>
+                        <h4 className="text-xs font-bold text-[#051C2C] tracking-tight">Real Labor Cost Allocation</h4>
+                      </div>
+                      <p className="text-[11px] text-gray-600 leading-normal">
+                        Calculates individual product labor costs proportionally by mapping daily actual paid hours/costs to output volumes using standard engineering times, replacing crude averages.
+                      </p>
+                      <div className="text-[10px] font-mono text-[#2251FF] bg-[#2251FF]/5 px-2 py-1 rounded inline-block">
+                        Status: Active (See YTD Cost Matrix)
+                      </div>
+                    </div>
+
+                    {/* Capability 2 */}
+                    <div className="p-4 bg-[#F5F5F2] border border-[#E8E8E6] rounded-lg space-y-2">
+                      <div className="flex items-center gap-2">
+                        <div className="w-6 h-6 rounded-full bg-[#2251FF]/10 flex items-center justify-center text-[#2251FF] text-xs font-bold font-mono">2</div>
+                        <h4 className="text-xs font-bold text-[#051C2C] tracking-tight">Paid vs. Productive Conversion</h4>
+                      </div>
+                      <p className="text-[11px] text-gray-600 leading-normal">
+                        Directly converts timesheet paid hours into standard productive hours. Tracks efficiency leakage and uncovers paid hours lost during non-productive transitions.
+                      </p>
+                      <div className="text-[10px] font-mono text-emerald-600 bg-emerald-50 px-2 py-1 rounded inline-block">
+                        Status: Active (See YTD Utilization)
+                      </div>
+                    </div>
+
+                    {/* Capability 3 */}
+                    <div className="p-4 bg-[#F5F5F2] border border-[#E8E8E6] rounded-lg space-y-2">
+                      <div className="flex items-center gap-2">
+                        <div className="w-6 h-6 rounded-full bg-[#2251FF]/10 flex items-center justify-center text-[#2251FF] text-xs font-bold font-mono">3</div>
+                        <h4 className="text-xs font-bold text-[#051C2C] tracking-tight">Plan vs. Actual Bottleneck Monitor</h4>
+                      </div>
+                      <p className="text-[11px] text-gray-600 leading-normal">
+                        Aggregates weekly targets against real batch completions, calculating exact variances to identify lagging product lines before schedule disruptions compound.
+                      </p>
+                      <div className="text-[10px] font-mono text-amber-600 bg-amber-50 px-2 py-1 rounded inline-block">
+                        Status: Active (See Monitor Below)
+                      </div>
+                    </div>
+
+                    {/* Capability 4 */}
+                    <div className="p-4 bg-[#F5F5F2] border border-[#E8E8E6] rounded-lg space-y-2">
+                      <div className="flex items-center gap-2">
+                        <div className="w-6 h-6 rounded-full bg-[#2251FF]/10 flex items-center justify-center text-[#2251FF] text-xs font-bold font-mono">4</div>
+                        <h4 className="text-xs font-bold text-[#051C2C] tracking-tight">Interactive Capacity Simulator</h4>
+                      </div>
+                      <p className="text-[11px] text-gray-600 leading-normal">
+                        A real-time sandbox simulating wages, headcount, shift lengths, and throughput speeds. Identifies prospective capacity gaps and unit cost effects instantly.
+                      </p>
+                      <button 
+                        onClick={() => setActiveTab('scenario')}
+                        className="text-[10px] font-bold text-[#2251FF] hover:underline flex items-center gap-1"
+                      >
+                        Launch Sandbox Simulator <ChevronRight className="w-3 h-3" />
+                      </button>
+                    </div>
+
+                    {/* Capability 5 */}
+                    <div className="p-4 bg-[#F5F5F2] border border-[#E8E8E6] rounded-lg space-y-2">
+                      <div className="flex items-center gap-2">
+                        <div className="w-6 h-6 rounded-full bg-[#2251FF]/10 flex items-center justify-center text-[#2251FF] text-xs font-bold font-mono">5</div>
+                        <h4 className="text-xs font-bold text-[#051C2C] tracking-tight">Labor Consumption Prioritization</h4>
+                      </div>
+                      <p className="text-[11px] text-gray-600 leading-normal">
+                        Identifies high-intensity labor sinks. Provides direct strategic advice regarding price increases or automation prioritization to optimize gross margin contributions.
+                      </p>
+                      <div className="text-[10px] font-mono text-[#2251FF] bg-[#2251FF]/5 px-2 py-1 rounded inline-block">
+                        Status: Active (See Advisor Quadrant)
+                      </div>
+                    </div>
+
+                    {/* Capability 6 */}
+                    <div className="p-4 bg-[#F5F5F2] border border-[#E8E8E6] rounded-lg space-y-2">
+                      <div className="flex items-center gap-2">
+                        <div className="w-6 h-6 rounded-full bg-[#2251FF]/10 flex items-center justify-center text-[#2251FF] text-xs font-bold font-mono">6</div>
+                        <h4 className="text-xs font-bold text-[#051C2C] tracking-tight">Reusable Single-Point Database</h4>
+                      </div>
+                      <p className="text-[11px] text-gray-600 leading-normal">
+                        Retains chronological historical records securely in local cache. Supports CSV importing and full JSON database backups, avoiding weekly Excel rebuilds.
+                      </p>
+                      <button 
+                        onClick={() => setActiveTab('setup')}
+                        className="text-[10px] font-bold text-[#2251FF] hover:underline flex items-center gap-1"
+                      >
+                        Manage Backup & Imports <ChevronRight className="w-3 h-3" />
+                      </button>
+                    </div>
+                  </div>
+                </div>
+
+                {/* ─── NEW BENTO SECTION: PLAN VS ACTUAL & CONSUMPTION MATRIX ─── */}
+                <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
+                  {/* Left Bento: Plan vs Actual Bottleneck Monitor */}
+                  <div className="bg-white rounded-xl shadow-[0_4px_12px_rgba(0,0,0,0.05)] border border-black/5 p-5 space-y-4">
+                    <div className="flex items-center justify-between">
+                      <div>
+                        <h3 className="font-heading text-base font-bold text-[#051C2C] tracking-tight flex items-center gap-1.5">
+                          <CheckCircle className="w-4 h-4 text-[#2251FF]" />
+                          Plan vs. Actual Bottleneck Tracker
+                        </h3>
+                        <p className="text-[10px] text-[#888888] font-body">
+                          Comparing targeted production schedules against real physical yield.
+                        </p>
+                      </div>
+                      <span className="text-[9px] bg-[#2251FF]/5 text-[#2251FF] font-mono font-bold uppercase px-2 py-1 rounded">
+                        Active Scheduling
+                      </span>
+                    </div>
+
+                    <div className="overflow-hidden border border-[#E8E8E6] rounded-lg">
+                      <table className="w-full text-left border-collapse">
+                        <thead>
+                          <tr className="border-b border-black/10 bg-gray-50/50 text-[10px] font-semibold text-[#051C2C]">
+                            <th className="px-4 py-2">Product</th>
+                            <th className="px-4 py-2 text-right">Target (Packs)</th>
+                            <th className="px-4 py-2 text-right">Actual (Packs)</th>
+                            <th className="px-4 py-2 text-right">Variance</th>
+                            <th className="px-4 py-2 text-right">Attainment</th>
+                          </tr>
+                        </thead>
+                        <tbody className="divide-y divide-[#E8E8E6] text-[11px] font-body text-gray-700">
+                          {planVsActualMatrix.map(item => {
+                            const isUnderproduced = item.variance < 0;
+                            return (
+                              <tr key={item.productId} className="hover:bg-gray-50/50 transition-colors">
+                                <td className="px-4 py-2.5 font-semibold text-[#051C2C]">
+                                  <div>{item.productName}</div>
+                                  <div className="text-[9px] font-mono font-medium text-gray-400">{item.productId}</div>
+                                </td>
+                                <td className="px-4 py-2.5 text-right font-mono">{item.totalPlan.toLocaleString()}</td>
+                                <td className="px-4 py-2.5 text-right font-mono font-semibold">{item.totalActual.toLocaleString()}</td>
+                                <td className={`px-4 py-2.5 text-right font-mono font-bold ${isUnderproduced ? 'text-[#D32F2F]' : 'text-[#00C853]'}`}>
+                                  {isUnderproduced ? '' : '+'}{item.variance.toLocaleString()}
+                                </td>
+                                <td className="px-4 py-2.5 text-right font-mono">
+                                  <div className="flex items-center justify-end gap-1.5">
+                                    <span className="font-extrabold">{(item.attainment * 100).toFixed(0)}%</span>
+                                    <span className={`w-1.5 h-1.5 rounded-full ${isUnderproduced ? 'bg-[#D32F2F] animate-pulse' : 'bg-[#00C853]'}`}></span>
+                                  </div>
+                                </td>
+                              </tr>
+                            );
+                          })}
+                        </tbody>
+                      </table>
+                    </div>
+                  </div>
+
+                  {/* Right Bento: Pricing & Labor Consumption Priority Advisor */}
+                  <div className="bg-white rounded-xl shadow-[0_4px_12px_rgba(0,0,0,0.05)] border border-black/5 p-5 space-y-4">
+                    <div className="flex items-center justify-between">
+                      <div>
+                        <h3 className="font-heading text-base font-bold text-[#051C2C] tracking-tight flex items-center gap-1.5">
+                          <Sliders className="w-4 h-4 text-[#2251FF]" />
+                          Labor Consumption & Pricing Priority Advisor
+                        </h3>
+                        <p className="text-[10px] text-[#888888] font-body">
+                          Strategic matrix mapping unit labor cost profile to assist retail pricing.
+                        </p>
+                      </div>
+                      <span className="text-[9px] bg-emerald-50 text-emerald-700 font-mono font-bold uppercase px-2 py-1 rounded">
+                        Pricing Intel
+                      </span>
+                    </div>
+
+                    <div className="grid grid-cols-2 gap-3 text-xs">
+                      {/* Quadrant 1: High Labor Cost */}
+                      <div className="p-3 border border-[#E8E8E6] bg-red-50/40 rounded-lg space-y-1.5">
+                        <div className="flex items-center justify-between">
+                          <span className="text-[10px] font-bold text-[#D32F2F] uppercase tracking-wider">🔴 High Labor Sinks</span>
+                          <span className="text-[8px] font-mono bg-red-50 text-red-700 px-1.5 py-0.5 rounded font-bold">Premium Pricing Needed</span>
+                        </div>
+                        <div className="space-y-1 font-mono text-[10px] text-[#051C2C]">
+                          {productMatrix
+                            .filter(p => p.avgUnitLaborCost >= 0.25)
+                            .map(p => (
+                              <div key={p.productId} className="flex justify-between border-b border-red-100/50 pb-0.5">
+                                <span className="truncate max-w-[120px]">{p.productName}</span>
+                                <span className="font-bold">${p.avgUnitLaborCost.toFixed(2)}/pk</span>
+                              </div>
+                            ))}
+                          {productMatrix.filter(p => p.avgUnitLaborCost >= 0.25).length === 0 && (
+                            <div className="text-gray-400 italic text-[9px]">No products in this quadrant.</div>
+                          )}
+                        </div>
+                        <p className="text-[9px] text-gray-500 leading-normal">
+                          Requires higher markup/selling price, or specialized automation to optimize standard throughput bottleneck.
+                        </p>
+                      </div>
+
+                      {/* Quadrant 2: Medium Cost */}
+                      <div className="p-3 border border-[#E8E8E6] bg-amber-50/40 rounded-lg space-y-1.5">
+                        <div className="flex items-center justify-between">
+                          <span className="text-[10px] font-bold text-amber-700 uppercase tracking-wider">🟡 Moderate Labor</span>
+                          <span className="text-[8px] font-mono bg-amber-50 text-amber-800 px-1.5 py-0.5 rounded font-bold">Monitor Margins</span>
+                        </div>
+                        <div className="space-y-1 font-mono text-[10px] text-[#051C2C]">
+                          {productMatrix
+                            .filter(p => p.avgUnitLaborCost >= 0.12 && p.avgUnitLaborCost < 0.25)
+                            .map(p => (
+                              <div key={p.productId} className="flex justify-between border-b border-amber-100 pb-0.5">
+                                <span className="truncate max-w-[120px]">{p.productName}</span>
+                                <span className="font-bold">${p.avgUnitLaborCost.toFixed(2)}/pk</span>
+                              </div>
+                            ))}
+                          {productMatrix.filter(p => p.avgUnitLaborCost >= 0.12 && p.avgUnitLaborCost < 0.25).length === 0 && (
+                            <div className="text-gray-400 italic text-[9px]">No products in this quadrant.</div>
+                          )}
+                        </div>
+                        <p className="text-[9px] text-gray-500 leading-normal">
+                          Healthy margins expected with standard retail markup. Ensure workers maintain the throughput speed during shifts.
+                        </p>
+                      </div>
+
+                      {/* Quadrant 3: Low Cost / Efficient */}
+                      <div className="p-3 border border-[#E8E8E6] bg-emerald-50/30 rounded-lg space-y-1.5 col-span-2">
+                        <div className="flex items-center justify-between">
+                          <span className="text-[10px] font-bold text-emerald-700 uppercase tracking-wider">🟢 Labor-Lean Champions</span>
+                          <span className="text-[8px] font-mono bg-emerald-50 text-emerald-800 px-1.5 py-0.5 rounded font-bold">Highly Scalable</span>
+                        </div>
+                        <div className="grid grid-cols-2 gap-3 font-mono text-[10px] text-[#051C2C]">
+                          {productMatrix
+                            .filter(p => p.avgUnitLaborCost < 0.12)
+                            .map(p => (
+                              <div key={p.productId} className="flex justify-between border-b border-emerald-100 pb-0.5">
+                                <span className="truncate max-w-[150px]">{p.productName}</span>
+                                <span className="font-bold text-emerald-700">${p.avgUnitLaborCost.toFixed(2)}/pk</span>
+                              </div>
+                            ))}
+                          {productMatrix.filter(p => p.avgUnitLaborCost < 0.12).length === 0 && (
+                            <div className="text-gray-400 italic text-[9px] col-span-2">No products in this quadrant.</div>
+                          )}
+                        </div>
+                        <p className="text-[9px] text-gray-500 leading-normal mt-1">
+                          These products have outstanding labor efficiency profiles. Ideal for high-volume wholesale promos, competitive white-label agreements, or serving as entry-level high-turnover loss leaders.
+                        </p>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+
+                {/* ─── NEW BENTO SECTION: LIVE CAPACITY SIMULATOR SHORTCUT HUD ─── */}
+                <div className="bg-[#051C2C] text-white rounded-xl shadow-[0_4px_12px_rgba(0,0,0,0.15)] p-5 flex flex-col md:flex-row md:items-center justify-between gap-5">
+                  <div className="space-y-1.5 max-w-xl">
+                    <div className="flex items-center gap-2">
+                      <span className="text-[9px] bg-[#2251FF] text-white font-mono font-bold uppercase px-2 py-0.5 rounded">
+                        Active Sandbox State
+                      </span>
+                      <h4 className="font-heading text-sm font-bold tracking-tight">
+                        What-If Capacity Sandbox Simulator
+                      </h4>
+                    </div>
+                    <p className="text-xs text-gray-300 leading-relaxed">
+                      Test prospective schedules, labor wage rates, headcounts, and efficiency adjustments before committing the physical timesheet roster. Currently simulating <strong>{simWorkers} crew members</strong> at <strong>{simShiftHours}h shifts</strong>.
+                    </p>
+                  </div>
+                  <div className="flex items-center gap-4 border-l border-white/10 pl-5">
+                    <div className="text-right">
+                      <div className="text-[10px] text-gray-400 font-mono uppercase">Simulation Capacity Gap</div>
+                      <div className={`text-lg font-heading font-bold font-mono ${capacityGap >= 0 ? 'text-[#00C853]' : 'text-[#FF3D00]'}`}>
+                        {capacityGap >= 0 ? '+' : ''}{capacityGap.toFixed(1)} hr / wk
+                      </div>
+                      <div className="text-[9px] text-gray-400">
+                        {capacityGap >= 0 ? 'Adequate capacity margins' : 'Deficit — overtime required'}
+                      </div>
+                    </div>
+                    <button 
+                      onClick={() => setActiveTab('scenario')}
+                      className="px-4 py-2 bg-[#2251FF] hover:bg-white hover:text-[#051C2C] text-white text-xs font-bold rounded-lg transition-all shadow-sm active:scale-[0.98]"
+                    >
+                      Enter Scenario Sandbox
+                    </button>
                   </div>
                 </div>
 

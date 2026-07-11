@@ -15,7 +15,7 @@ const inter = Inter({
 });
 
 export const metadata: Metadata = {
-  title: 'Labor Economics & Capacity Planning Engine',
+  title: 'Manufacturing Labor Cost & Capacity Planning Toolkit',
   description: 'A professional and dynamic labor economics and capacity planning engine for manufacturing operations.',
 };
 
