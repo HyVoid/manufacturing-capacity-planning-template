@@ -20,7 +20,7 @@
 
 # Screenshots
 
-<!-- screenshot: excel version -->
+<img width="1536" height="1024" alt="ChatGPT Image Jul 11, 2026, 11_31_22 AM" src="https://github.com/user-attachments/assets/e024aca5-9009-4112-995b-1c4aae34278f" />
 
 *Excel workbook with automated calculation engine, production input sheets, and management dashboard.*
 
