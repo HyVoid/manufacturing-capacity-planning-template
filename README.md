@@ -10,11 +10,10 @@
 
 > ## ✅ No signup. No installation. Free.
 >
-> **🌐 Browser Version**  
-> HTML Interactive Workbook *(Live Demo Placeholder)*
+> **🌐 Browser Version**  👉 [*HTML Demo*](https://hyvoid.github.io/Manufacturing-Labor-Cost-Capacity-Planning-Toolkit/)
 >
-> **📥 Excel Version**  
-> Gumroad / GitHub Release *(Download Placeholder)*
+> **📥 Excel Version**   👉[*Download Link*](https://alexhasgreatestuff.gumroad.com/l/nmsae)
+> 
 
 ---
 
