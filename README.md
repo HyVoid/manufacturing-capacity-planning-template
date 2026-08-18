@@ -12,7 +12,7 @@
 >
 > **🌐 Browser Version**  👉 [*HTML Demo*](https://hyvoid.github.io/Manufacturing-Labor-Cost-Capacity-Planning-Toolkit/)
 >
-> **📥 Excel Version**   👉[*Download Link*](https://alexhasgreatestuff.gumroad.com/l/nmsae)
+> **📥 Excel Version**   👉[*Download Link*](https://alexhasgreatestuff.gumroad.com/l/nmsae?utm_source=github&utm_medium=GitHub%20README&utm_campaign=readme%20new%20launch&utm_content=manufacturing-labor-capacity)
 > 
 
 ---
