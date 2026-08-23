@@ -8,7 +8,9 @@
 
 **A lightweight production labor economics engine that transforms production plans, labor hours, and output data into capacity, utilization, labor cost, and staffing decisions—without software installation or ERP implementation.**
 
-> ## ✅ No signup. No installation. Free.
+**No signup. No installation. Free in your browser.**
+
+Try the browser version for free. If you need the Excel version, you can buy it with a 7-day money-back guarantee.
 >
 > **🌐 Browser Version**  👉 [*HTML Demo*](https://hyvoid.github.io/Manufacturing-Labor-Cost-Capacity-Planning-Toolkit/)
 >
