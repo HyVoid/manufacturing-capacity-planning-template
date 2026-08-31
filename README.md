@@ -17,7 +17,7 @@ A lightweight production scheduling and manufacturing labor economics engine. Tr
 
 Test the browser-based production dashboard for free. Once you are ready for recurring offline operational management, you can purchase the unlocked Excel version with a 30-day, no-questions-asked money-back guarantee.
 
-> **🌐 Web App Trial**  👉 [*Launch Free Manufacturing Capacity Dashboard (Browser Demo)*](https://hyvoid.github.io/Manufacturing-Labor-Cost-Capacity-Planning-Toolkit/)
+> **🌐 Web App Trial**  👉 [*Launch Free Manufacturing Capacity Dashboard (Browser Demo)*](https://hyvoid.github.io/manufacturing-capacity-planning-template/)
 >
 > **📥 Excel Tool**   👉 [*Download the Reusable Labor Cost Tracking Excel Spreadsheet (.XLSX)*](https://alexhasgreatestuff.gumroad.com/l/nmsae?utm_source=github&utm_medium=GitHub%20README&utm_campaign=readme%20new%20launch&utm_content=manufacturing-labor-capacity)
  
