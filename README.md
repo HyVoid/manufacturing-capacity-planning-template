@@ -1,667 +1,257 @@
-# Manufacturing Labor Economics & Capacity Planning Engine
+<h1 align="center">Manufacturing Capacity Planning & Direct Labor Cost Tracking Template</h1>
+
+<div align="center">
 
 ![License](https://img.shields.io/badge/License-Apache%202.0-blue.svg)
 ![Platform](https://img.shields.io/badge/Platform-Browser%20%2B%20Excel-success)
 ![Tool](https://img.shields.io/badge/Tool-Production%20Decision%20Support-orange)
 ![No VBA](https://img.shields.io/badge/No-VBA-green)
 
+</div>
 
-**A lightweight production labor economics engine that transforms production plans, labor hours, and output data into capacity, utilization, labor cost, and staffing decisions—without software installation or ERP implementation.**
+<p align="center"><strong>
+A lightweight production scheduling and manufacturing labor economics engine. Transform shop floor production plans, direct labor hours, and daily output data into real-time capacity planning, workforce utilization rates, accurate product labor costs, and staffing decisions—without expensive ERP software or MES implementation.
+</strong></p>
 
 **No signup. No installation. Free in your browser.**
 
-Try the browser version for free. If you need the Excel version, you can buy it with a 30-day, no-questions-asked money-back guarantee.
+Test the browser-based production dashboard for free. Once you are ready for recurring offline operational management, you can purchase the unlocked Excel version with a 30-day, no-questions-asked money-back guarantee.
+
+> **🌐 Web App Trial**  👉 [*Launch Free Manufacturing Capacity Dashboard (Browser Demo)*](https://hyvoid.github.io/Manufacturing-Labor-Cost-Capacity-Planning-Toolkit/)
 >
-> **🌐 Browser Version**  👉 [*HTML Demo*](https://hyvoid.github.io/Manufacturing-Labor-Cost-Capacity-Planning-Toolkit/)
->
-> **📥 Excel Version**   👉[*Download Link*](https://alexhasgreatestuff.gumroad.com/l/nmsae?utm_source=github&utm_medium=GitHub%20README&utm_campaign=readme%20new%20launch&utm_content=manufacturing-labor-capacity)
-> 
+> **📥 Excel Tool**   👉 [*Download the Reusable Labor Cost Tracking Excel Spreadsheet (.XLSX)*](https://alexhasgreatestuff.gumroad.com/l/nmsae?utm_source=github&utm_medium=GitHub%20README&utm_campaign=readme%20new%20launch&utm_content=manufacturing-labor-capacity)
+ 
+---
+
+## Production Pain Points & Capacity Planning Solutions
+
+Instead of simply tracking metrics, this framework maps your most critical shop floor bottlenecks to automated analytical solutions:
+
+- **Pain Point: Unexplained Labor Variance & Overtime Bloat**  
+  **Solution:** Tracks planned production standard hours versus actual direct labor throughput across all routing stages, revealing exactly where productivity drops.
+- **Pain Point: "Busy" Employees vs. Actual Productivity (Low OEE)**  
+  **Solution:** Calculates true labor utilization rates instead of relying on subjective supervisor impressions of shop floor activity.
+- **Pain Point: Inaccurate Bill of Materials (BOM) Costing**  
+  **Solution:** Automatically allocates shared direct labor across mixed manufacturing lines to reveal the actual labor cost per product unit.
+- **Pain Point: Blind Hiring & Capital Expenditure (CapEx) Decisions**  
+  **Solution:** Simulates capacity utilization scenarios to quantify the operational impact of changing workforce size, shift schedules, or production volume *before* you hire or invest in equipment.
 
 ---
 
-# What It Helps You Track
+## Standard Operating Procedure (SOP): Quick Start Tutorial
 
-- Planned production versus actual throughput across products and production stages.
-- Labor utilization rates instead of relying on subjective impressions of whether the team was "busy."
-- Actual labor cost per product after allocating shared labor across mixed production lines.
-- Weekly and monthly productivity trends that reveal whether operational improvements are working.
-- Capacity utilization before hiring additional employees or investing in equipment.
-- Staffing and production scenarios that quantify the operational impact of changing workforce size, efficiency, or production volume.
+Getting meaningful industrial engineering insights should not require rebuilding macro-heavy spreadsheets every week. This workflow is designed as a standard operating procedure (SOP) for recurring production control. 
 
----
+### Step 1: Configure Manufacturing Routing Assumptions
+Open the **Setup_Assumptions** sheet. Define your core operating parameters: standard shift hours, hourly wage benchmarks, overtime multipliers, and standard production throughput rates (units per hour) for each manufacturing process.  
+*Action:* Establish your production baseline once to automate all future capacity calculations.
 
-# Quick Start Workflow
+### Step 2: Import Shop Floor Data
+Paste your existing daily manufacturing records into the designated input tables:
+- Master Production Schedule (MPS) / Production plans
+- Actual production yield / output
+- Labor attendance and paid labor hours
+- Direct labor payroll costs  
+*Action:* Export this data from your accounting software, time-clock system, or CSV files directly into the engine.
 
-Getting meaningful production insights should not require rebuilding spreadsheets every week. This workbook follows a simple operational workflow designed for recurring production analysis rather than one-off reporting.
+### Step 3: Analyze the Production KPI Dashboard
+Switch to the **Management Dashboard**. Review your automated performance metrics:
+- Labor utilization & Capacity utilization
+- True product labor cost & Production variance
+- Weekly throughput vs. Target  
+*Action:* Use these quantitative insights for your daily stand-up meetings and weekly production reviews.
 
-### 1. Configure business assumptions
-
-Open the **Setup_Assumptions** sheet once and define the operating parameters that rarely change, including standard shift hours, hourly wage assumptions, overtime multipliers, and standard production rates for each manufacturing process.
-
-This configuration becomes the baseline for every future calculation.
-
----
-
-### 2. Import production data
-
-Paste existing production information into the designated input sheets:
-
-- Production plans
-- Actual production output
-- Labor attendance
-- Paid labor hours
-- Labor costs
-
-Data can be exported directly from accounting software, manufacturing records, CSV files, or copied from existing spreadsheets without redesigning the workbook.
+### Step 4: Scale Your Operations with the Reusable Excel Template
+Once you have tested the logic in the browser, migrate to the offline version for continuous data logging. Simply append new rows to the input tables as production records come in.  
+**👉 [*Download the Excel Capacity Planning Template*](https://alexhasgreatestuff.gumroad.com/l/nmsae?utm_source=github&utm_medium=GitHub%20README&utm_campaign=readme%20new%20launch&utm_content=manufacturing-labor-capacity) to build your permanent historical production database without subscription fees.**
 
 ---
 
-### 3. Review management results
+## Why I Built This Production Decision Support Tool
 
-Switch to the **Management Dashboard**.
-
-Every KPI updates automatically, including:
-
-- Labor utilization
-- Capacity utilization
-- Product labor cost
-- Production variance
-- Weekly throughput
-- Monthly performance
-- Cost per unit
-
-No manual calculations or report rebuilding are required.
-
----
-
-### 4. Refresh periodically
-
-As new production records become available, simply append additional rows to the input tables.
-
-The workbook automatically extends calculations using structured Excel tables and refreshes every dashboard metric.
-
-**Set a few key parameters. Drop in existing production data. Review the analysis. Refresh whenever new operational data becomes available.**
-
----
-
-# Why I Built This
-
-Many small manufacturing businesses know exactly how much they spend on payroll every week, yet cannot explain how that payroll actually contributes to production performance.
+Many SME manufacturing businesses know their total weekly payroll, yet cannot map that overhead back to actual production performance. 
 
 Management meetings often revolve around statements like:
+> "The shop floor seemed busy today."  
+> "We probably need to hire another line worker."
 
-> "The team seemed busy today."
+Neither statement is supported by lean manufacturing data. The underlying analytical failure is treating direct labor as a static expense rather than a productive resource constrained by routing and standard times.
 
-or
+For example, a factory spends **$8,000** weekly while producing four different product lines. Management knows the total payroll, but lacks visibility into:
+- Which SKU consumed the most direct labor?
+- Did the production run meet theoretical machine capacity?
+- Were operators fully utilized, or burdened by idle time and changeovers?
 
-> "We probably need another employee."
-
-Neither statement is supported by measurable evidence.
-
-The underlying analytical failure is that labor is treated only as an expense rather than as a productive resource that should be measured against output.
-
-For example, a factory may spend **$8,000** on weekly wages while producing four different product categories. Everyone knows total payroll, but nobody knows:
-
-- which products consumed the labor,
-- whether production met theoretical capacity,
-- whether employees were fully utilized,
-- whether hiring another employee would actually solve the problem.
-
-This workbook productizes a repeatable reasoning framework instead of creating another custom spreadsheet.
-
-Before using the workbook, management might conclude:
+Before using this template, a plant manager might conclude:
+```text
+Symptom: Production missed the weekly target.
+Knee-jerk Reaction: Hire another employee.
 
 ```
-Production missed target.
-Hire another employee.
-```
 
-After applying standardized throughput benchmarks and labor allocation:
+After applying standardized throughput benchmarking via this tool:
 
-```
+```text
 Labor Utilization: 71%
-
 Capacity Utilization: 68%
+Root Cause: Production scheduling created idle labor (wait time), not a staffing shortage.
+Recommendation: Optimize batch scheduling and material flow before increasing payroll.
 
-Root Cause:
-Production scheduling created idle labor,
-not insufficient staffing.
-
-Recommendation:
-Improve scheduling before increasing payroll.
 ```
 
-The workbook turns recurring operational reasoning into a reusable decision-support framework instead of requiring managers to rebuild the same analysis every reporting period.
+---
+
+## Shop Floor Bottlenecks: Legacy Tracking vs. Automated Solutions
+
+| Manufacturing Operation Problem | Legacy Manual Tracking (Spreadsheet Chaos) | Automated Capacity Planning Solution |
+| --- | --- | --- |
+| **Labor efficiency is invisible** | Staffing decisions rely on supervisor intuition and visual observation | Standard throughput algorithms establish measurable, objective labor utilization |
+| **Product margins are inaccurate** | Total payroll is known, but exact per-SKU labor cost is guessed | Shared indirect and direct labor is allocated automatically based on production effort |
+| **Production Schedule Disconnect** | Missed manufacturing targets lack measurable root-cause analysis | Planned vs. Actual production variance is tracked daily |
+| **Reactive Hiring Practices** | Hiring expands payroll overhead without guaranteeing throughput increases | Workforce capacity simulations quantify output impact *before* hiring decisions are made |
+| **CapEx Investment Risks** | Equipment automation purchases are based on gut feeling | Capacity utilization metrics prove whether bottlenecks justify machinery upgrades |
+| **Reporting Fatigue** | Operations managers waste hours rebuilding Excel reports every Friday | Dynamic dashboards refresh instantly from raw shop floor data inputs |
 
 ---
 
-# Common Manufacturing Problems This Solves
+## Production Floor Scenarios: Who Needs This Capacity Planning Tool?
 
-| Problem | Without This Tool | With This Tool |
-|------------|-------------------|----------------|
-| Labor efficiency cannot be measured | Decisions rely on observations and intuition | Standard throughput establishes measurable labor utilization |
-| Payroll is known but product labor cost is unknown | Product profitability cannot be evaluated accurately | Shared labor is allocated across products automatically |
-| Production plans are disconnected from execution | Missed targets have no measurable explanation | Planned versus actual production variance becomes visible |
-| Staffing decisions depend on experience | Hiring may increase cost without increasing throughput | Capacity simulations quantify staffing impact before hiring |
-| Equipment investment lacks operational evidence | Capital spending is based on assumptions | Capacity utilization shows whether bottlenecks justify automation |
-| Weekly reporting requires manual spreadsheet work | Reports are rebuilt every reporting cycle | Dashboards refresh automatically from updated production data |
+This tool captures specific workflow requirements for various manufacturing roles. It acts as a lightweight alternative to complex Advanced Planning and Scheduling (APS) modules.
 
----
+* **Plant Managers & Operations Directors needing a capacity planning excel template**:
+Evaluate overall facility output, justify headcount requests, and monitor gross labor margins without digging into raw ERP data.
+* **Production Supervisors looking for a daily labor variance tracker**:
+Manage shift performance, track daily throughput against standard operating times, and identify which production lines are causing bottlenecks.
+* **Industrial Engineers & Lean Manufacturing Consultants seeking an OEE calculation spreadsheet**:
+Audit client or facility performance by rapidly calculating labor utilization, process efficiency, and theoretical capacity limits.
+* **Small Business Owners (Food, Pet Treat, Packaging) needing manufacturing software alternatives**:
+Control labor-intensive production operations where employees frequently switch between different products and stations, making traditional direct labor tracking impossible.
 
-# Who This Is For
-
-This workbook is designed for:
-
-- Small food manufacturers
-- Pet treat manufacturers
-- Mixed manufacturing and packaging operations
-- Production supervisors
-- Plant managers
-- Operations managers
-- Manufacturing consultants
-- Business owners managing labor-intensive production
-
-It is particularly useful where labor is shared across multiple products and production stages, making direct labor allocation difficult.
-
-This workbook is **not** intended to replace ERP, MES, APS, or real-time factory execution systems.
-
-No spreadsheet expertise is required. Open the browser version or Excel workbook, import production data, and begin tracking operational performance immediately.
+*Note: This workbook is a decision-support engine. It is **not** intended to replace enterprise-grade ERP, MES, or real-time SCADA factory execution systems.*
 
 ---
-
-# About
-
-I build lightweight analytical tools for operational situations where too many variables must be considered simultaneously and traditional spreadsheets become difficult to manage.
-
-Instead of asking, "What report should I build?", I start with a different question:
-
-> **What information must appear together so the next operational decision becomes obvious?**
-
-The **Pet Treat Manufacturing Labor Economics & Capacity Planning Engine** is one example of that approach. It packages recurring production reasoning into a reusable analytical framework that remains practical for small and medium manufacturing businesses.
 
 ## Technical Details
 
-<details>
-<summary><strong>For technical reviewers, Excel practitioners, and collaborators</strong></summary>
+### Workbook Architecture & Relational Data Flow
 
----
-
-### Workbook Architecture
-
-The workbook follows a one-way analytical pipeline rather than allowing calculations to flow in multiple directions. This minimizes circular references, improves auditability, and separates data entry from decision outputs.
+The workbook follows a strictly normalized, one-way analytical pipeline. This minimizes circular references, improves auditability, and enforces a strict separation between master data, transactional inputs, and reporting logic.
 
 ```text
-Business Parameters
+Business Parameters (Standard Times, Wages)
         │
         ▼
 Setup_Assumptions
         │
         ▼
-Product_Master
+Product_Master (BOM / Routing)
         │
         ├──────────────┐
         ▼              ▼
-Production_Plan   Actual_Production
+Production_Plan  Actual_Production
         │              │
         └──────┬───────┘
                ▼
-         Labor_Input
+         Labor_Input (Time & Attendance)
                │
                ▼
-Cost_Allocation_Engine
+Cost_Allocation_Engine (Activity Based Costing)
                │
         ┌──────┴─────────┐
         ▼                ▼
-Scenario_Model     Management_Dashboard
+Scenario_Model   Management_Dashboard (Power Query / Array Logic)
+
 ```
 
-| Worksheet | Purpose | Update Frequency |
-|------------|----------|-----------------|
-| Setup_Assumptions | Global operating assumptions | Rare |
-| Product_Master | Standard production rates and process definitions | Rare |
-| Production_Plan | Planned production quantities | Daily / Weekly |
-| Actual_Production | Actual production reporting | Daily |
-| Labor_Input | Labor attendance, hours and payroll | Daily |
-| Cost_Allocation_Engine | Automatic labor allocation and utilization calculations | Automatic |
-| Scenario_Model | Capacity and staffing simulations | On demand |
-| Management_Dashboard | Executive KPIs and production summaries | Automatic |
-
-### Data Flow
-
-```text
-Configuration
-      ↓
-Master Data
-      ↓
-Operational Inputs
-      ↓
-Labor Allocation
-      ↓
-Performance Metrics
-      ↓
-Management Decisions
-```
-
-The calculation engine deliberately separates:
-
-- input data
-- reference data
-- business assumptions
-- calculated measures
-- executive reporting
-
-This structure allows operational data to be refreshed without modifying formulas or dashboard layouts.
+| Database/Worksheet | Industrial Engineering Purpose | Update Frequency |
+| --- | --- | --- |
+| **Setup_Assumptions** | Global operating assumptions (shifts, base wages) | Rare |
+| **Product_Master** | Standard production rates (UPH) and routing definitions | Rare |
+| **Production_Plan** | Master Production Schedule (MPS) / Planned quantities | Daily / Weekly |
+| **Actual_Production** | Shop floor yield / Good units produced | Daily |
+| **Labor_Input** | Time-clock attendance, paid hours, overtime | Daily |
+| **Cost_Allocation_Engine** | Automatic Activity-Based Costing (ABC) for labor | Automatic |
+| **Scenario_Model** | What-if capacity planning and headcount simulation | On demand |
+| **Management_Dashboard** | Executive KPIs, OEE equivalents, variance reports | Automatic |
 
 ---
 
-## Three Traps That Catch Even Experienced Production Managers
+### Three Traps That Catch Even Experienced Production Managers
 
----
+#### Trap 1 — Confusing Busy Employees with High Labor Utilization (The Idle Time Fallacy)
 
-### Trap 1 — Confusing Busy Employees with High Labor Utilization
+*Assumption:* Every employee worked a full 8-hour shift, therefore labor utilization is 100%.
+*Reality:* Paid hours ≠ Productive hours. Paid time includes material starvation, machine setup, changeovers, cleaning, and idle time.
 
-A production manager observes that every employee worked a full shift.
-
-The conclusion is:
-
-> Labor utilization must have been high.
-
-The unnoticed assumption is that **paid hours equal productive hours**.
-
-In reality, paid hours include:
-
-- waiting for materials
-- equipment setup
-- changeovers
-- cleaning
-- idle time
-
-Example:
-
-| Metric | Value |
-|---------|------|
-| Paid labor hours | 56 |
-| Standard production hours | 38 |
-| Labor Utilization | 68% |
-
-Without measurement:
-
-```text
-Busy factory
-=
-Good productivity
-```
-
-Correct interpretation:
-
-```text
-Busy factory
-
-does NOT equal
-
-Productive factory.
-```
-
-Labor utilization is determined by productive output relative to paid labor input rather than employee activity.
-
-<details>
-<summary>Formula Reference</summary>
+**Correct interpretation:**
+Labor utilization is determined by productive output relative to paid labor input, not physical movement.
 
 ```excel
-Labor Utilization =
-Standard Labor Hours
-/
-Actual Paid Labor Hours
+Labor Utilization = Standard Earned Labor Hours / Actual Paid Labor Hours
+
 ```
+
+#### Trap 2 — Peanut-Butter Costing (Allocating Payroll Evenly)
+
+*Assumption:* A weekly payroll of $8,000 across 4 product lines means each product costs $2,000 in labor.
+*Reality:* Products have vastly different labor intensities and standard routing times. Equal allocation destroys product profitability analysis.
+
+**Correct interpretation:**
+Labor must be allocated proportionally based on standard hours earned (production effort), not product count.
 
 ```excel
-=SUM(Standard Labor Hours)
-/SUM(Paid Labor Hours)
-```
-
-</details>
-
-Correct operational recommendation:
-
-- Improve scheduling
-- Reduce idle time
-- Balance production flow
-
-before considering additional hiring.
-
----
-
-### Trap 2 — Allocating Payroll Evenly Across Products
-
-A weekly payroll totals:
+Allocated Cost = (Standard Hours / Daily Total Standard Hours) × Daily Payroll
 
 ```
-$8,000
-```
 
-Management divides payroll equally among four products.
+#### Trap 3 — Hiring Headcount Before Measuring Capacity (The Throughput Trap)
 
-Each receives:
+*Assumption:* Production missed targets -> We must hire another line worker.
+*Reality:* If current labor utilization is only 72%, hiring another worker just adds to idle time expense.
 
-```
-$2,000
-```
-
-The hidden assumption:
-
-Every product consumes identical labor resources.
-
-Actual production:
-
-| Product | Standard Hours |
-|----------|---------------|
-| Chicken | 210 |
-| Beef Heart | 150 |
-| Sweet Potato | 240 |
-| Pack-out | 70 |
-
-Equal allocation hides the fact that products require very different labor intensity.
-
-Instead, labor should follow production effort rather than product count.
-
-<details>
-<summary>Formula Reference</summary>
+**Correct interpretation:**
+Increase utilization and clear scheduling bottlenecks to unlock hidden capacity *before* expanding payroll.
 
 ```excel
-Allocated Cost
-
-=
-
-(Standard Hours
-
-/
-
-Daily Standard Hours)
-
-×
-
-Daily Payroll
-```
-
-```excel
-=(
-Standard Hours
-/
-Daily Standard Hours
-)
-*
-Daily Labor Cost
-```
-
-</details>
-
-Correct recommendation:
-
-Price products using allocated labor consumption instead of equal payroll splits.
-
----
-
-### Trap 3 — Hiring Before Measuring Capacity
-
-Production targets are missed.
-
-Management immediately concludes:
+Effective Capacity = Available Workforce Hours × Current Utilization Rate
 
 ```
-Need another employee.
-```
-
-Missing information:
-
-Current workforce utilization.
-
-Example:
-
-| Metric | Current |
-|---------|---------|
-| Employees | 7 |
-| Capacity Utilization | 67% |
-| Labor Utilization | 72% |
-
-Simulation:
-
-| Scenario | Weekly Capacity |
-|-----------|----------------|
-| Current Team | 10,800 packs |
-| Improve Utilization to 85% | 12,900 packs |
-| Hire One Employee | 12,300 packs |
-
-Improving utilization produces greater throughput than hiring another worker.
-
-<details>
-<summary>Formula Reference</summary>
-
-```excel
-Effective Capacity
-
-=
-
-Available Hours
-
-×
-
-Utilization
-```
-
-```excel
-Capacity Gap
-
-=
-
-Effective Capacity
-
--
-
-Required Standard Hours
-```
-
-</details>
-
-Correct operational recommendation:
-
-Increase utilization before increasing payroll whenever spare capacity already exists.
-
----
-
-### Example Scenario
-
-A small pet treat manufacturer operates one production line with seven employees.
-
-Weekly production target:
-
-| Product | Planned Packs |
-|----------|--------------|
-| Chicken | 4,000 |
-| Beef Heart | 2,000 |
-| Sweet Potato | 3,500 |
-| Pack-out | 5,000 |
-
-Labor records show:
-
-| Metric | Value |
-|---------|------|
-| Employees | 7 |
-| Paid Hours | 280 |
-| Payroll | $7,560 |
-
-Using the standard throughput library, the workbook calculates:
-
-| Result | Value |
-|---------|------|
-| Standard Production Hours | 218 |
-| Labor Utilization | 77.9% |
-| Capacity Utilization | 74.6% |
-| Average Labor Cost per Pack | $0.52 |
-
-Rather than concluding that production requires additional employees, management discovers that nearly one quarter of paid labor time is not converted into productive output.
-
-Scenario simulation evaluates three alternatives.
-
-| Option | Estimated Result |
-|---------|-----------------|
-| Hire one employee | Higher payroll with limited throughput gain |
-| Increase utilization to 85% | Throughput increases without additional payroll |
-| Improve packaging scheduling | Lowest implementation cost with highest short-term return |
-
-Instead of treating labor as a fixed expense, management can now evaluate labor as an operational investment whose return depends on scheduling efficiency, production flow, and standardized throughput.
-
----
-
-### Formula Reference
-
-<details>
-<summary>Setup_Assumptions</summary>
-
-| Formula | Purpose |
-|----------|---------|
-| Named Ranges | Store wage rate, shift hours, overtime multipliers |
-| Global Parameters | Centralize business assumptions |
-
-</details>
-
-<details>
-<summary>Product_Master</summary>
-
-```excel
-=1/Standard Throughput
-```
-
-Converts hourly production rates into standard labor hours per unit.
-
-</details>
-
-<details>
-<summary>Production_Plan</summary>
-
-```excel
-=XLOOKUP()
-```
-
-Retrieves product names and production process classifications automatically.
-
-</details>
-
-<details>
-<summary>Actual_Production</summary>
-
-```excel
-Actual Quantity
-×
-
-Standard Labor Hours
-```
-
-Calculates theoretical labor hours required for completed production.
-
-</details>
-
-<details>
-<summary>Labor_Input</summary>
-
-```excel
-Labor Cost
-/
-Paid Hours
-```
-
-Calculates actual average hourly labor cost.
-
-</details>
-
-<details>
-<summary>Cost Allocation Engine</summary>
-
-```excel
-SUMIFS()
-```
-
-Aggregates daily production.
-
-```excel
-XLOOKUP()
-```
-
-Retrieves labor records.
-
-```excel
-Allocated Cost
-
-=
-
-Standard Hour Share
-×
-
-Daily Payroll
-```
-
-Calculates actual labor cost by production batch.
-
-</details>
-
-<details>
-<summary>Scenario Model</summary>
-
-Uses configurable assumptions for:
-
-- workforce size
-- labor utilization
-- standard throughput
-- wage rates
-- production targets
-
-to estimate future capacity, payroll, and labor cost.
-
-</details>
-
-<details>
-<summary>Dashboard</summary>
-
-Uses structured tables together with:
-
-- SUMIFS
-- UNIQUE
-- Dynamic Arrays
-- XLOOKUP
-
-to refresh all KPIs automatically after new production data is added.
-
 </details>
 
 ---
 
-### Validation Rules
+## The Business Logic & Methodology
 
-| Field | Rule | Error Behavior |
-|-------|------|----------------|
-| Product ID | Must exist in Product_Master | Returns Unknown Product |
-| Production Date | Required | Record excluded from summaries |
-| Actual Quantity | ≥ 0 | Negative values blocked |
-| Planned Quantity | ≥ 0 | Validation warning |
-| Paid Hours | > 0 | Utilization returns zero |
-| Labor Cost | ≥ 0 | Cost allocation prevented |
-| Standard Throughput | > 0 | Division by zero prevented |
-| Employees | Positive integer | Scenario calculation disabled |
-| Wage Rate | Positive number | Uses default assumption |
-| Duplicate Product IDs | Not permitted | Validation flag displayed |
+To bridge the gap between financial payroll records and shop floor execution, this engine abandons subjective observation in favor of **Standard Costing** and **Activity-Based Costing (ABC)** methodologies. 
 
-</details>
+### 1. The Core Business Problem: The Payroll Disconnect
+In most small-to-medium manufacturing operations, direct labor is treated as a fixed weekly expense on the P&L. The finance department knows the total payroll, and the production team knows the total physical output. However, because operators frequently switch between multiple product lines and routing stages, management loses visibility into *how much labor* was actually consumed by *which product*. 
+
+This disconnect leads to distorted gross margins, inaccurate pricing strategies, and blind capacity planning where hiring is based on stress rather than math.
+
+### 2. The Methodology: Activity-Based Standard Costing
+This analytical engine resolves the disconnect by implementing a three-step quantitative methodology:
+
+*   **Phase 1: Normalization via Standard Earned Hours**
+    Instead of counting physical units (which vary wildly in labor complexity), the engine converts all production into a universal operational currency: **Standard Hours**. By defining a theoretical throughput rate (Units per Hour) for each routing step, the model calculates exactly how much time *should* have been spent to achieve the actual daily yield.
+*   **Phase 2: Proportional Labor Cost Allocation (ABC)**
+    Traditional spreadsheets often spread daily payroll evenly across all products produced that day—a flawed method that penalizes simple, high-volume SKUs and subsidizes complex, labor-intensive ones. This engine allocates dollars proportionally based on effort. If Product A generated 70% of the day's total Standard Earned Hours, it automatically absorbs 70% of the day's total direct labor cost.
+*   **Phase 3: The Utilization Gap Analysis**
+    By contrasting **Actual Paid Hours** against **Standard Earned Hours**, the engine isolates the "Utilization Gap." This metric reveals the exact financial cost of non-value-added activities, such as machine downtime, material starvation, changeovers, and scheduling inefficiencies.
+
+### 3. The Commercial Outcome
+By systematically applying this logic, the engine transforms subjective management debates ("Do we need to hire more staff?") into objective, data-backed decisions ("We have 28% unused labor capacity; we must optimize batch scheduling, not increase payroll"). It ensures your product pricing logic is built on actual resource consumption, ultimately protecting your operating margins.
 
 ---
 
-## Other Tools in This Series
+## Other Tools in This Operations Series
 
-These workbooks follow the same philosophy: lightweight analytical frameworks that help operational teams make better decisions without replacing enterprise software.
+These templates follow a unified philosophy: lightweight, Excel-based analytical frameworks that empower operations teams to make immediate, data-driven decisions.
 
-- **Construction Estimating System** — Estimate project costs, compare bids, and monitor construction budgets.
-- **Inventory Forecasting & Replenishment Planner** — Forecast demand and calculate reorder points using historical inventory data.
-- **Retail & Maquila Inventory Ledger** — Track bulk inventory, production, defects, and finished goods across hybrid manufacturing workflows.
-- **Trip Finance Tracker** — Monitor trip profitability, multi-currency cash flow, and operational expenses.
-- More lightweight decision-support tools are available through the GitHub repository and Gumroad releases.
+* **Construction Estimating System** — Estimate project costs, compare subcontractor bids, and monitor WIP construction budgets.
+* **Inventory Forecasting & Replenishment Planner** — Forecast demand, calculate safety stock, and set reorder points using historical ERP data.
+* **Retail & Maquila Inventory Ledger** — Track bulk WIP inventory, routing defects, and finished goods across contract manufacturing workflows.
+* **Trip Finance Tracker** — Monitor logistics profitability, multi-currency cash flow, and fleet operational expenses.
 
 ---
 
@@ -669,4 +259,4 @@ These workbooks follow the same philosophy: lightweight analytical frameworks th
 
 This project is licensed under the **Apache License 2.0**.
 
-You are free to use, modify, and distribute this workbook in accordance with the terms of the Apache License 2.0. Contributions and improvements are welcome while preserving the original license requirements.
+You are free to use, modify, and distribute this analytical engine in accordance with the terms of the Apache License 2.0. Contributions to the production metrics logic are welcome while preserving the original license.
