@@ -216,7 +216,6 @@ Increase utilization and clear scheduling bottlenecks to unlock hidden capacity 
 Effective Capacity = Available Workforce Hours × Current Utilization Rate
 
 ```
-</details>
 
 ---
 
