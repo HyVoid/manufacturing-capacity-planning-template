@@ -1,6 +1,6 @@
-<h1 align="center">Manufacturing Capacity Planning & Direct Labor Cost Tracking Template</h1>
+<h1 align="left">Manufacturing Capacity Planning & Direct Labor Cost Tracking Template</h1>
 
-<div align="center">
+<div align="left">
 
 ![License](https://img.shields.io/badge/License-Apache%202.0-blue.svg)
 ![Platform](https://img.shields.io/badge/Platform-Browser%20%2B%20Excel-success)
@@ -9,7 +9,7 @@
 
 </div>
 
-<p align="center"><strong>
+<p align="left"><strong>
 A lightweight production scheduling and manufacturing labor economics engine. Transform shop floor production plans, direct labor hours, and daily output data into real-time capacity planning, workforce utilization rates, accurate product labor costs, and staffing decisions—without expensive ERP software or MES implementation.
 </strong></p>
 
