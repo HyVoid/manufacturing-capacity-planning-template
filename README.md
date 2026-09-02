@@ -19,7 +19,7 @@ Test the browser-based production dashboard for free. Once you are ready for rec
 
 > **🌐 Web App Trial**  👉 [*Launch Free Manufacturing Capacity Dashboard (Browser Demo)*](https://hyvoid.github.io/manufacturing-capacity-planning-template/)
 >
-> **📥 Excel Tool**   👉 [*Download the Reusable Labor Cost Tracking Excel Spreadsheet (.XLSX)*](https://alexhasgreatestuff.gumroad.com/l/nmsae?utm_source=github&utm_medium=GitHub%20README&utm_campaign=readme%20new%20launch&utm_content=manufacturing-labor-capacity)
+> **📥 Excel Tool**   👉 [*Download the Reusable Labor Cost Tracking Excel Spreadsheet (.XLSX)*](https://www.theseusworkshop.com/l/nmsae?utm_source=github&utm_medium=GitHub%20README&utm_campaign=readme%20new%20launch&utm_content=manufacturing-labor-capacity)
  
 ---
 
@@ -63,7 +63,7 @@ Switch to the **Management Dashboard**. Review your automated performance metric
 
 ### Step 4: Scale Your Operations with the Reusable Excel Template
 Once you have tested the logic in the browser, migrate to the offline version for continuous data logging. Simply append new rows to the input tables as production records come in.  
-**👉 [*Download the Excel Capacity Planning Template*](https://alexhasgreatestuff.gumroad.com/l/nmsae?utm_source=github&utm_medium=GitHub%20README&utm_campaign=readme%20new%20launch&utm_content=manufacturing-labor-capacity) to build your permanent historical production database without subscription fees.**
+**👉 [*Download the Excel Capacity Planning Template*](https://www.theseusworkshop.com/l/nmsae?utm_source=github&utm_medium=GitHub%20README&utm_campaign=readme%20new%20launch&utm_content=manufacturing-labor-capacity) to build your permanent historical production database without subscription fees.**
 
 ---
 
