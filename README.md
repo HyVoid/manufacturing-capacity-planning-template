@@ -133,6 +133,9 @@ Control labor-intensive production operations where employees frequently switch 
 
 ## Technical Details
 
+<details>
+<summary>For technical reviewers, Excel practitioners, and collaborators</summary>
+
 ### Workbook Architecture & Relational Data Flow
 
 The workbook follows a strictly normalized, one-way analytical pipeline. This minimizes circular references, improves auditability, and enforces a strict separation between master data, transactional inputs, and reporting logic.
@@ -216,6 +219,8 @@ Increase utilization and clear scheduling bottlenecks to unlock hidden capacity 
 Effective Capacity = Available Workforce Hours × Current Utilization Rate
 
 ```
+
+</details>
 
 ---
 
